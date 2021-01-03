@@ -1,4 +1,8 @@
-# piccolo grande start|end distance fadein fadeout
+#this script takes two arguments: first) video to overlay. Second) the base video.
+#Both must be in the current directory and must be in mp4 format. 
+#For more info read the reedme file
+#eg.  pip_ffmpeg.sh overlay_video.mp4 base_video.mp4
+
 if [ "$#" != "2" ]
 then
 	echo "You have these videos in your folder."
