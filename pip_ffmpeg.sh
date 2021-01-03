@@ -65,13 +65,11 @@ else
 					read time_line
 						case $time_line in
 							begin | 1)
-								echo "allo inizio itsoffset=0"
 							itsoffset=0
 							STRING_0_TOP="[0]fade=out:$(expr $over_nb_frame - 3):1:alpha=1[TOP]"
 
 						;;
 							end | 2)
-								echo "alla fine itsoffset=$rest_sec_base_over"
 							itsoffset=$rest_sec_base_over
 						;;
 						esac
@@ -85,12 +83,10 @@ else
 					read time_line
 						case $time_line in
 							begin | 1)
-								echo "allo inizio itsoffset=0"
 							itsoffset=0
 							STRING_0_TOP="[0]fade=out:$(expr $over_nb_frame - 3):1:alpha=1[TOP]"
 						;;
 							end | 2)
-								echo "alla fine itsoffset=$rest_sec_base_over"
 							itsoffset=$rest_sec_base_over
 						;;
 						esac
@@ -104,20 +100,18 @@ else
 					read time_line
 						case $time_line in
 							begin | 1)
-								echo "allo inizio itsoffset=0"
 							itsoffset=0
 							STRING_0_TOP="[0]fade=out:$(expr $over_nb_frame - 3):1:alpha=1[TOP]"
 						;;
 							end | 2)
-								echo "alla fine itsoffset=$rest_sec_base_over"
 							itsoffset=$rest_sec_base_over
 						;;
 						esac
 			;;
 			esac
 			#filter complex
-			echo $STRING_BASE_TOP_overlay
 			filter_complex=$STRING_0_TOP";"$STRING_1_BASE";"$STRING_BASE_TOP_overlay";"$STRING_SOUND
+			##ffnpeg command
 			ffmpeg -itsoffset $itsoffset -i $over_video -i $base_video -filter_complex $filter_complex -vcodec h264 -acodec aac output.mp4
 		else
 			echo "goodbye!"
